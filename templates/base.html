@@ -9,6 +9,23 @@
     </head>
 
 <body>
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+          <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+    {#        <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>#}
+            <span class="fs-4">Simple header</span>
+          </a>
+          <ul class="nav nav-pills">
+              {% if header_selection_index == 1 %}
+                <li class="nav-item"><a href="{% url 'guest_check:home' %}" class="nav-link">Guest Check</a></li>
+                <li class="nav-item"><a href="{% url 'id_explain:home' %}" class="nav-link active" aria-current="page">ID Explain</a></li>
+              {% elif header_selection_index == 0 %}
+                <li class="nav-item"><a href="{% url 'guest_check:home' %}" class="nav-link active" aria-current="page">Guest Check</a></li>
+                <li class="nav-item"><a href="{% url 'id_explain:home' %}" class="nav-link">ID Explain</a></li>
+              {% endif %}
+          </ul>
+        </header>
+    </div>
     {% block body %}
     {% endblock body %}
 <!-- JavaScript Bundle with Popper -->
